@@ -37,7 +37,7 @@ class user extends Route
         echo json_encode($item);
     }
 
-    function displayTransfer1()
+    function displayTransfer()
     {
         $service = new testService();
         $token = $service->getCSRFToken();
@@ -48,7 +48,7 @@ class user extends Route
 
         $this->tpl->display('demo/csrf.tpl');
     }
-    function transfer1()
+    function transfer()
     {
 
         $account = $_POST['account'];
@@ -62,13 +62,11 @@ class user extends Route
                 "account" => $account,
                 "amount" => $amount,
             ];
-
             $inp = file_get_contents('public/data/data.json');
             $tempArray = json_decode($inp);
             array_push($tempArray, $data);
             $jsonData = json_encode($tempArray);
             file_put_contents('public/data/data.json', $jsonData);
-
 
             if (file_put_contents('public/data/data.json', $jsonData))
                 echo "successfully...";
@@ -77,11 +75,11 @@ class user extends Route
         }
     }
 
-    function displayTransfer()
+    function displayTransfer_unsafe()
     {
         $this->tpl->display('demo/csrf.tpl');
     }
-    function transfer()
+    function transfer_unsafe()
     {
 
         $account = $_POST['account'];

@@ -60,7 +60,7 @@ class StudentModel extends BaseModel
 
     function update($data)
     {
-        $sql = "UPDATE student SET name = '" . $data->name . "' , courses = '" . $data->courses . "' , score =" . $data->score . ",  time = '" . $data->time . "' WHERE id =?" ;
+        $sql = "UPDATE student SET name = '" . $data->name . "' , courses = '" . $data->courses . "' , score =" . $data->score . ",  time = '" . $data->time . "' WHERE id =?";
 
         try {
             $stmt = $this->db->prepare($sql);
@@ -85,8 +85,8 @@ class StudentModel extends BaseModel
     function delete($id)
     {
         try {
-        $dbh = $this->db->prepare("DELETE FROM student WHERE id=?");
-        $dbh->execute([$id]);
+            $dbh = $this->db->prepare("DELETE FROM student WHERE id=?");
+            $dbh->execute([$id]);
             return  json_encode(['code' => 200]);
         } catch (PDOException $e) {
             return  json_encode(['code' => 500]);
@@ -111,9 +111,8 @@ class StudentModel extends BaseModel
     }
     function search($offset, $limit, $text, $column, $type, $top)
     {
-        if ($top == "true") {
+        if ($top == "true") {//SELECT st.* FROM (SELECT DISTINCT score FROM student ORDER BY score DESC LIMIT 3 )st1 JOIN student st ON st.score = st1.score ORDER BY st.score DESC;
             $dbh = $this->db->prepare("SELECT * FROM student  ORDER BY score DESC LIMIT 3 ");
-
         } else {
             $dbh = $this->db->prepare("SELECT * FROM student WHERE name  LIKE '%{$text}%' or courses  LIKE '%{$text}%' or score  LIKE '%{$text}%' ORDER BY {$column} {$type} LIMIT {$offset},{$limit}");
         }
@@ -130,11 +129,13 @@ class StudentModel extends BaseModel
         $count = $dbh->fetchColumn();
         return $count;
     }
-    function top3($table)
+    function top3_old($table)
     {
         $dbh = $this->db->prepare("SELECT TOP 3 FROM {$table}  ORDER BY score DESC");
         $dbh->execute();
         $count = $dbh->fetchColumn();
         return $count;
     }
+
+   
 }

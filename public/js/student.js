@@ -120,10 +120,10 @@ function topStudent() {
 
 function searchStudent() {
     search = $("#search").val();
-    // $.post("search-student" , { text: text }, function (result) {
     column = $("#sort").val();
     type = $("#sort_type").val();
-    // });
+
+    
     var table = $('#datatable_student').DataTable();
     table.clear();
     table.destroy();
@@ -215,9 +215,9 @@ function reload_table() {
         "pagingType": "full_numbers",
         "responsive": true,
         "ajax": {
-            "url": "get-data-table-student",
+            "url": "search-student",
             "type": "POST",
-            "data": { search: search },
+            "data": {search: search, column: column, type: type, top: top_student  },
         },
         "fnRowCallback": function (nRow, aData) {
             $(nRow).attr("rowid", aData[0]);

@@ -29,8 +29,8 @@ $router->post('/search-item', 'StudentController@search');
 $router->get('/search-item', 'StudentController@search');
 
 //csrf 
-$router->get('/transfer', 'User@displayTransfer');
-$router->post('/transfer', 'User@transfer');
+$router->get('/transfer', 'User@displayTransfer_unsafe');
+$router->post('/transfer', 'User@transfer_unsafe');
 
 
 //test 
