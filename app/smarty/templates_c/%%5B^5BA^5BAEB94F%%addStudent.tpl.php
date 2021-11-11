@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.32, created on 2021-11-05 09:35:56
+<?php /* Smarty version 2.6.32, created on 2021-11-11 03:25:50
          compiled from student/addStudent.tpl */ ?>
 <!--begin add Modal -->
 <div class="modal fade" id="add_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -6,7 +6,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Create Student  tests</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Create Student</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,6 +15,9 @@
 
                 <form class="needs-validation" novalidate id="add_form" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="csrf_token()" />
+                    <input type="hidden" name="token" value="<?php echo $this->_tpl_vars['token']; ?>
+" id="csrf_token"/>
+
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">

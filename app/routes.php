@@ -3,6 +3,8 @@
 //student page
 
 $router->get('/', 'StudentController@index');
+$router->get('/student-list', 'StudentController@index');
+
 $router->get('/student-add', 'StudentController@add');
 $router->post('/student-add', 'StudentController@createStudent');
 
@@ -13,14 +15,22 @@ $router->post('/student-delete/{id}', 'StudentController@deleteStudent');
 $router->post('/student-get-item/{id}', 'StudentController@getItemStudent');
 
 $router->post('/student-update', 'StudentController@updateStudent');
+$router->post('/search-student', 'StudentController@searchStudent');
 
-$router->get('/student-detail/{id}', 'StudentController@detail');
+
+//demo sql injection
+$router->get('/demo', 'User@demo');
+
+$router->get('/student-detail/{id}', 'User@detail1');
 
 //search test xss
-// $router->get('/search-item/{text}', 'StudentController@search');
+$router->get('/search-item/{text}', 'StudentController@searchXSS');
 $router->post('/search-item', 'StudentController@search');
-// $router->get('/search-item', 'StudentController@search');
-$router->post('/search-student', 'StudentController@searchStudent');
+$router->get('/search-item', 'StudentController@search');
+
+//csrf 
+$router->get('/transfer', 'User@displayTransfer');
+$router->post('/transfer', 'User@transfer');
 
 
 //test 

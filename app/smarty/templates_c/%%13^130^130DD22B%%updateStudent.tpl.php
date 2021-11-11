@@ -1,6 +1,6 @@
-<?php /* Smarty version 2.6.32, created on 2021-11-05 09:35:56
+<?php /* Smarty version 2.6.32, created on 2021-11-11 04:12:47
          compiled from student/updateStudent.tpl */ ?>
-<!--begin add Modal -->
+<!--begin update Modal -->
 <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -15,6 +15,9 @@
 
                 <form class="needs-validation" novalidate id="update_form" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="csrf_token()" />
+                    <input type="hidden" name="token" value="<?php echo $this->_tpl_vars['token']; ?>
+" id="csrf_token"/>
+
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">

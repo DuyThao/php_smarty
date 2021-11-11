@@ -1,4 +1,4 @@
-<!--begin add Modal -->
+<!--begin update Modal -->
 <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -13,6 +13,8 @@
 
                 <form class="needs-validation" novalidate id="update_form" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="csrf_token()" />
+                    <input type="hidden" name="token" value="{$token}" id="csrf_token"/>
+
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">

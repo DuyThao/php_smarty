@@ -6,8 +6,6 @@
             <ol class="breadcrumb mb-4">
                <li class="breadcrumb-item active"><a href="index.php"> Student</a></li>
                 <li class="breadcrumb-item active"><a href="index.php"> Student List</a></li>
-
-
             </ol>
             <div class="row">
             </div>

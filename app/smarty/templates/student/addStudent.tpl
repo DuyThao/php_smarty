@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> Create Student  tests</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Create Student</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,6 +13,8 @@
 
                 <form class="needs-validation" novalidate id="add_form" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="csrf_token()" />
+                    <input type="hidden" name="token" value="{$token}" id="csrf_token"/>
+
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">
