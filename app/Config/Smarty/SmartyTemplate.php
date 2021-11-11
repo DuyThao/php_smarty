@@ -10,6 +10,7 @@ class SmartyTemplate extends \Smarty {
         $smarty_path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR;
         $this->template_dir = $smarty_path . 'templates';
         $this->compile_dir= $smarty_path . 'templates_c' ;
+        $this->plugins_dir = $smarty_path . 'plugins' ;
         // $this->setCacheDir( $smarty_path . 'cache' );
         // $this->setConfigDir( $smarty_path . 'config' );
     }

@@ -73,7 +73,6 @@ class Route
             // thay thế param bằng (.+). VD: post/{id} -> post/(.+)
             $url = preg_replace('/({([a-zA-Z]+)})/', '(.+)', $url);
         }
-
         // Thay thế tất cả các kí tự / bằng ký tự \/ (regex) trong URL.
         $url = str_replace('/', '\/', $url);
 

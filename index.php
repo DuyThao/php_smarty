@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 ini_set('display_errors',1);
 
 $GLOBALS['config'] = array (
@@ -43,14 +43,6 @@ $method_url = !empty($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 
 
 $router->map($request_url, $method_url);
 
-// $expected_controllers = array ( 'index', 'user' );
-// $_GET['controller'] = 'user';
-// if(!empty($_GET)) {
-//    if(in_array($_GET['controller'], $expected_controllers )) {
-//        $controller = new Loader($_GET);
-//        $controller = $controller->createController();
-//        $controller->executeAction();
-//    }
-// }
+
 
 
