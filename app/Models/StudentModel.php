@@ -49,9 +49,10 @@ class StudentModel extends BaseModel
 
     function create($data)
     {
-        $sql = "INSERT INTO student (name, courses, score, time)  VALUES ('" . $data->name . "', '" . $data->courses . "' , " . $data->score . ", '" . $data->time . "')";
+        $sql = "INSERT INTO student (name, courses, score, time)  VALUES (? , ? , ? , ? )";
         try {
-            $this->db->exec($sql);
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([$data->name,$data->courses,$data->score,$data->time]);
             return json_encode(['code' => 200]);
         } catch (PDOException $e) {
             return  json_encode(['code' => 500]);
@@ -60,11 +61,11 @@ class StudentModel extends BaseModel
 
     function update($data)
     {
-        $sql = "UPDATE student SET name = '" . $data->name . "' , courses = '" . $data->courses . "' , score =" . $data->score . ",  time = '" . $data->time . "' WHERE id =?";
+        $sql = "UPDATE student SET name =? , courses =? , score =? ,  time =? WHERE id =?";
 
         try {
             $stmt = $this->db->prepare($sql);
-            $stmt->execute([$data->id]);
+            $stmt->execute([$data->name,$data->courses,$data->score,$data->time,$data->id]);
             return  json_encode(['code' => 200]);
         } catch (PDOException $e) {
             return  json_encode(['code' => 500]);
